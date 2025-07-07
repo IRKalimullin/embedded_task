@@ -1,0 +1,112 @@
+menu "Embedded Task Configuration"
+
+    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+
+    config ET_UART_PORT_NUM
+        int "UART port number"
+        range 0 2 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
+        default 2 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
+        range 0 1
+        default 1
+        help
+            UART communication port number.
+
+    config ET_UART_BAUD_RATE
+        int "UART communication speed"
+        range 1200 115200
+        default 115200
+        help
+            UART communication speed.
+
+    config ET_UART_RXD
+        int "UART RXD pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_IN_RANGE_MAX
+        default 3
+        help
+            GPIO number for UART RX pin.
+
+    config ET_UART_TXD
+        int "UART TXD pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 1
+        help
+            GPIO number for UART TX pin.
+
+    config ET_TASK_STACK_SIZE
+        int "UART echo example task stack size"
+        range 1024 16384
+        default 3072
+        help
+            Defines stack size for UART echo example. Insufficient stack size can cause crash.
+
+    config LED_1_GPIO
+        int "LED 1 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 12
+        help
+            GPIO number for channel 1 LED.
+
+    config LOCK_1_GPIO
+        int "LOCK 1 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 27
+        help
+            GPIO number for channel 1 relay.
+
+    config LED_2_GPIO
+        int "LED 2 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 33
+        help
+            GPIO number for channel 2 LED.
+
+    config LOCK_2_GPIO
+        int "LOCK 2 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 9
+        help
+            GPIO number for channel 2 relay.        
+
+    config LED_3_GPIO
+        int "LED 3 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 25
+        help
+            GPIO number for channel 3 LED.
+
+    config LOCK_3_GPIO
+        int "LOCK 3 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 26
+        help
+            GPIO number for channel 3 relay.
+
+    config LED_4_GPIO
+        int "LED 4 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 10
+        help
+            GPIO number for channel 4 LED.
+
+    config LOCK_4_GPIO
+        int "LOCK 4 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 32
+        help
+            GPIO number for channel 4 relay.        
+    
+    config LED_5_GPIO
+        int "LED 5 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 5 LED.
+
+    config LOCK_5_GPIO
+        int "LOCK 5 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 5 relay.        
+
+endmenu

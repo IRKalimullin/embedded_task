@@ -1,0 +1,2 @@
+source /home/kir/Music/test/embedded_task/build/gdbinit/symbols
+source /home/kir/Music/test/embedded_task/build/gdbinit/connect
