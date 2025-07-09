@@ -22,4 +22,4 @@ set confirm off
 set confirm on
 
 # Load application symbols
-file /home/kir/Music/test/embedded_task/build/bootloader/bootloader.elf
+file /home/kir/Documents/embedde_testing/embedded_task/build/bootloader/bootloader.elf

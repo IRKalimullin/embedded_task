@@ -18,8 +18,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file /home/kir/Music/test/embedded_task/build/bootloader/bootloader.elf
+    add-symbol-file /home/kir/Documents/embedde_testing/embedded_task/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file /home/kir/Music/test/embedded_task/build/embedded_task.elf
+file /home/kir/Documents/embedde_testing/embedded_task/build/embedded_task.elf

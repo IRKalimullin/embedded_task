@@ -1,4 +1,4 @@
-# Install script for directory: /home/kir/Music/test/embedded_task
+# Install script for directory: /home/kir/Documents/embedde_testing/embedded_task
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/kir/Music/test/embedded_task/build/esp-idf/cmake_install.cmake")
+  include("/home/kir/Documents/embedde_testing/embedded_task/build/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kir/Music/test/embedded_task/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kir/Documents/embedde_testing/embedded_task/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

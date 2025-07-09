@@ -107,6 +107,286 @@ menu "Embedded Task Configuration"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
         default 13
         help
-            GPIO number for channel 5 relay.        
+            GPIO number for channel 5 relay.
+
+    config LED_6_GPIO
+        int "LED 6 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 6 LED.
+
+    config LOCK_6_GPIO
+        int "LOCK 6 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 6 relay.
+
+    config LED_7_GPIO
+        int "LED 7 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 7 LED.
+
+    config LOCK_7_GPIO
+        int "LOCK 7 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 7 relay.
+
+    config LED_8_GPIO
+        int "LED 8 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 8 LED.
+
+    config LOCK_8_GPIO
+        int "LOCK 8 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 8 relay.
+
+    config LED_9_GPIO
+        int "LED 9 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 9 LED.
+
+    config LOCK_9_GPIO
+        int "LOCK 9 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 9 relay.
+
+    config LED_10_GPIO
+        int "LED 10 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 10 LED.
+
+    config LOCK_10_GPIO
+        int "LOCK 10 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 10 relay.
+
+    config LED_11_GPIO
+        int "LED 11 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 11 LED.
+
+    config LOCK_11_GPIO
+        int "LOCK 11 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 11 relay.
+
+    config LED_12_GPIO
+        int "LED 12 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 12 LED.
+
+    config LOCK_12_GPIO
+        int "LOCK 12 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 12 relay.
+
+    config LED_13_GPIO
+        int "LED 13 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 13 LED.
+
+    config LOCK_13_GPIO
+        int "LOCK 13 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 13 relay.
+
+    config LED_14_GPIO
+        int "LED 14 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 14 LED.
+
+    config LOCK_14_GPIO
+        int "LOCK 14 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 14 relay.
+
+    config LED_15_GPIO
+        int "LED 15 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 15 LED.
+
+    config LOCK_15_GPIO
+        int "LOCK 15 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 15 relay.
+
+    config LED_16_GPIO
+        int "LED 16 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 16 LED.
+
+    config LOCK_16_GPIO
+        int "LOCK 16 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 16 relay.
+
+    config LED_17_GPIO
+        int "LED 17 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 17 LED.
+
+    config LOCK_17_GPIO
+        int "LOCK 17 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 17 relay.
+
+    config LED_18_GPIO
+        int "LED 18 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 18 LED.
+
+    config LOCK_18_GPIO
+        int "LOCK 18 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 18 relay.
+
+    config LED_19_GPIO
+        int "LED 19 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 19 LED.
+
+    config LOCK_19_GPIO
+        int "LOCK 19 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 19 relay.
+
+    config LED_20_GPIO
+        int "LED 20 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 20 LED.
+
+    config LOCK_20_GPIO
+        int "LOCK 20 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 20 relay.
+
+    config LED_21_GPIO
+        int "LED 21 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 21 LED.
+
+    config LOCK_21_GPIO
+        int "LOCK 21 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 21 relay.
+
+    config LED_22_GPIO
+        int "LED 22 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 22 LED.
+
+    config LOCK_22_GPIO
+        int "LOCK 22 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 22 relay.
+
+    config LED_23_GPIO
+        int "LED 23 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 23 LED.
+
+    config LOCK_23_GPIO
+        int "LOCK 23 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 23 relay.
+
+    config LED_24_GPIO
+        int "LED 24 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 24 LED.
+
+    config LOCK_24_GPIO
+        int "LOCK 24 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 24 relay.
+
+    config LED_25_GPIO
+        int "LED 25 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 14
+        help
+            GPIO number for channel 25 LED.
+
+    config LOCK_25_GPIO
+        int "LOCK 25 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 13
+        help
+            GPIO number for channel 25 relay.
 
 endmenu

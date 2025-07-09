@@ -1,2 +1,2 @@
-source /home/kir/Music/test/embedded_task/build/bootloader/gdbinit/symbols
-source /home/kir/Music/test/embedded_task/build/bootloader/gdbinit/connect
+source /home/kir/Documents/embedde_testing/embedded_task/build/bootloader/gdbinit/symbols
+source /home/kir/Documents/embedde_testing/embedded_task/build/bootloader/gdbinit/connect

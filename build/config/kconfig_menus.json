@@ -5221,6 +5221,526 @@
                 ],
                 "title": "LOCK 5 GPIO number",
                 "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 6 LED.",
+                "id": "LED_6_GPIO",
+                "name": "LED_6_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 6 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 6 relay.",
+                "id": "LOCK_6_GPIO",
+                "name": "LOCK_6_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 6 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 7 LED.",
+                "id": "LED_7_GPIO",
+                "name": "LED_7_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 7 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 7 relay.",
+                "id": "LOCK_7_GPIO",
+                "name": "LOCK_7_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 7 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 8 LED.",
+                "id": "LED_8_GPIO",
+                "name": "LED_8_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 8 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 8 relay.",
+                "id": "LOCK_8_GPIO",
+                "name": "LOCK_8_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 8 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 9 LED.",
+                "id": "LED_9_GPIO",
+                "name": "LED_9_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 9 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 9 relay.",
+                "id": "LOCK_9_GPIO",
+                "name": "LOCK_9_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 9 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 10 LED.",
+                "id": "LED_10_GPIO",
+                "name": "LED_10_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 10 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 10 relay.",
+                "id": "LOCK_10_GPIO",
+                "name": "LOCK_10_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 10 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 11 LED.",
+                "id": "LED_11_GPIO",
+                "name": "LED_11_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 11 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 11 relay.",
+                "id": "LOCK_11_GPIO",
+                "name": "LOCK_11_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 11 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 12 LED.",
+                "id": "LED_12_GPIO",
+                "name": "LED_12_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 12 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 12 relay.",
+                "id": "LOCK_12_GPIO",
+                "name": "LOCK_12_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 12 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 13 LED.",
+                "id": "LED_13_GPIO",
+                "name": "LED_13_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 13 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 13 relay.",
+                "id": "LOCK_13_GPIO",
+                "name": "LOCK_13_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 13 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 14 LED.",
+                "id": "LED_14_GPIO",
+                "name": "LED_14_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 14 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 14 relay.",
+                "id": "LOCK_14_GPIO",
+                "name": "LOCK_14_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 14 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 15 LED.",
+                "id": "LED_15_GPIO",
+                "name": "LED_15_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 15 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 15 relay.",
+                "id": "LOCK_15_GPIO",
+                "name": "LOCK_15_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 15 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 16 LED.",
+                "id": "LED_16_GPIO",
+                "name": "LED_16_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 16 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 16 relay.",
+                "id": "LOCK_16_GPIO",
+                "name": "LOCK_16_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 16 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 17 LED.",
+                "id": "LED_17_GPIO",
+                "name": "LED_17_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 17 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 17 relay.",
+                "id": "LOCK_17_GPIO",
+                "name": "LOCK_17_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 17 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 18 LED.",
+                "id": "LED_18_GPIO",
+                "name": "LED_18_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 18 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 18 relay.",
+                "id": "LOCK_18_GPIO",
+                "name": "LOCK_18_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 18 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 19 LED.",
+                "id": "LED_19_GPIO",
+                "name": "LED_19_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 19 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 19 relay.",
+                "id": "LOCK_19_GPIO",
+                "name": "LOCK_19_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 19 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 20 LED.",
+                "id": "LED_20_GPIO",
+                "name": "LED_20_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 20 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 20 relay.",
+                "id": "LOCK_20_GPIO",
+                "name": "LOCK_20_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 20 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 21 LED.",
+                "id": "LED_21_GPIO",
+                "name": "LED_21_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 21 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 21 relay.",
+                "id": "LOCK_21_GPIO",
+                "name": "LOCK_21_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 21 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 22 LED.",
+                "id": "LED_22_GPIO",
+                "name": "LED_22_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 22 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 22 relay.",
+                "id": "LOCK_22_GPIO",
+                "name": "LOCK_22_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 22 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 23 LED.",
+                "id": "LED_23_GPIO",
+                "name": "LED_23_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 23 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 23 relay.",
+                "id": "LOCK_23_GPIO",
+                "name": "LOCK_23_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 23 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 24 LED.",
+                "id": "LED_24_GPIO",
+                "name": "LED_24_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 24 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 24 relay.",
+                "id": "LOCK_24_GPIO",
+                "name": "LOCK_24_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 24 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 25 LED.",
+                "id": "LED_25_GPIO",
+                "name": "LED_25_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LED 25 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for channel 25 relay.",
+                "id": "LOCK_25_GPIO",
+                "name": "LOCK_25_GPIO",
+                "range": [
+                    0,
+                    33
+                ],
+                "title": "LOCK 25 GPIO number",
+                "type": "int"
             }
         ],
         "depends_on": null,

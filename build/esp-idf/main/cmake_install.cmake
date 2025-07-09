@@ -1,4 +1,4 @@
-# Install script for directory: /home/kir/Music/test/embedded_task/main
+# Install script for directory: /home/kir/Documents/embedde_testing/embedded_task/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

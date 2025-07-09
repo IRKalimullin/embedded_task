@@ -318,7 +318,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/kir/esp/esp-idf/components/bootloader/subproject -B/home/kir/Music/test/embedded_task/build/bootloader
+  command = /usr/bin/cmake --regenerate-during-build -S/home/kir/esp/esp-idf/components/bootloader/subproject -B/home/kir/Documents/embedde_testing/embedded_task/build/bootloader
   description = Re-running CMake...
   generator = 1
 

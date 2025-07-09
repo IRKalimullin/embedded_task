@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/kir/Music/test/embedded_task/build/CMakeFiles/bootloader
-/home/kir/Music/test/embedded_task/build/CMakeFiles/bootloader.rule
-/home/kir/Music/test/embedded_task/build/CMakeFiles/bootloader-complete.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/kir/Music/test/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/CMakeFiles/bootloader
+/home/kir/Documents/embedde_testing/embedded_task/build/CMakeFiles/bootloader.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/CMakeFiles/bootloader-complete.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/kir/Documents/embedde_testing/embedded_task/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

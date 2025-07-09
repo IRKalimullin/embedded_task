@@ -16,17 +16,65 @@
 #define ET_UART_BAUD_RATE (CONFIG_ET_UART_BAUD_RATE)
 #define ET_UART_TASK_STACK_SIZE (CONFIG_ET_TASK_STACK_SIZE)
 
-#define LED_1_PIN (CONFIG_LED_1_GPIO)
-#define LED_2_PIN (CONFIG_LED_2_GPIO)
-#define LED_3_PIN (CONFIG_LED_3_GPIO)
-#define LED_4_PIN (CONFIG_LED_4_GPIO)
-#define LED_5_PIN (CONFIG_LED_5_GPIO)
+//Макросы для выбора конфигурации канала 
+#define LED_PIN_NUM(n) CONFIG_LED_##n##_GPIO 
+#define LOCK_PIN_NUM(n) CONFIG_LOCK_##n##_GPIO
 
-#define LOCK_1_PIN (CONFIG_LOCK_1_GPIO)
-#define LOCK_2_PIN (CONFIG_LOCK_2_GPIO)
-#define LOCK_3_PIN (CONFIG_LOCK_3_GPIO)
-#define LOCK_4_PIN (CONFIG_LOCK_4_GPIO)
-#define LOCK_5_PIN (CONFIG_LOCK_5_GPIO)
+int led_pins[] = {
+    LED_PIN_NUM(1),
+    LED_PIN_NUM(2),
+    LED_PIN_NUM(3),
+    LED_PIN_NUM(4),
+    LED_PIN_NUM(5),
+    LED_PIN_NUM(6),
+    LED_PIN_NUM(7),
+    LED_PIN_NUM(8),
+    LED_PIN_NUM(9),
+    LED_PIN_NUM(10),
+    LED_PIN_NUM(11),
+    LED_PIN_NUM(12),
+    LED_PIN_NUM(13),
+    LED_PIN_NUM(14),
+    LED_PIN_NUM(15),
+    LED_PIN_NUM(16),
+    LED_PIN_NUM(17),
+    LED_PIN_NUM(18),
+    LED_PIN_NUM(19),
+    LED_PIN_NUM(20),
+    LED_PIN_NUM(21),
+    LED_PIN_NUM(22),
+    LED_PIN_NUM(23),
+    LED_PIN_NUM(24),
+    LED_PIN_NUM(25)
+    };
+
+int lock_pins[] = {
+    LOCK_PIN_NUM(1),
+    LOCK_PIN_NUM(2),
+    LOCK_PIN_NUM(3),
+    LOCK_PIN_NUM(4),
+    LOCK_PIN_NUM(5),
+    LOCK_PIN_NUM(6),
+    LOCK_PIN_NUM(7),
+    LOCK_PIN_NUM(8),
+    LOCK_PIN_NUM(9),
+    LOCK_PIN_NUM(10),
+    LOCK_PIN_NUM(11),
+    LOCK_PIN_NUM(12),
+    LOCK_PIN_NUM(13),
+    LOCK_PIN_NUM(14),
+    LOCK_PIN_NUM(15),
+    LOCK_PIN_NUM(16),
+    LOCK_PIN_NUM(17),
+    LOCK_PIN_NUM(18),
+    LOCK_PIN_NUM(19),
+    LOCK_PIN_NUM(20),
+    LOCK_PIN_NUM(21),
+    LOCK_PIN_NUM(22),
+    LOCK_PIN_NUM(23),
+    LOCK_PIN_NUM(24),
+    LOCK_PIN_NUM(25)
+    };
 
 #define BUF_SIZE (1024)
 
@@ -43,53 +91,33 @@ struct channel_params
     bool channel_permission; // флаг разрешения работы канала
 };
 
-//Структуры для каждого канала
-struct channel_params LED_1_PARAM;
-struct channel_params LED_2_PARAM;
-struct channel_params LED_3_PARAM;
-struct channel_params LED_4_PARAM;
-struct channel_params LED_5_PARAM;
+// Массив структур для хранения параметров для каждого канала
+struct channel_params ch_parameters[sizeof(lock_pins) / sizeof(lock_pins[0])]; 
 
-//Флаги создания задачи обработки канала
-bool channel_1_task_created;
-bool channel_2_task_created;
-bool channel_3_task_created;
-bool channel_4_task_created;
-bool channel_5_task_created;
+// Массив флагов создания задачи для каждого канала
+bool channels_created_flags[sizeof(lock_pins) / sizeof(lock_pins[0])]; 
 
 uint8_t recData[14]; // Массив для хранения принятой команды
 
+uint8_t max_number_channel = sizeof(lock_pins) / sizeof(lock_pins[0]); // количество имеющихся каналов для управления
+
+
 static void configureGPIO(void)
 {
-    gpio_config_t io_conf = {
-        .mode = GPIO_MODE_OUTPUT,
-        .pin_bit_mask = (1ULL << LED_1_PIN) | (1ULL << LED_2_PIN) | (1ULL << LED_3_PIN)
-        | (1ULL << LED_4_PIN) | (1ULL << LED_5_PIN) | (1ULL << LOCK_1_PIN) | (1ULL << LOCK_2_PIN)
-        | (1ULL << LOCK_3_PIN) | (1ULL << LOCK_4_PIN) | (1ULL << LOCK_5_PIN),
-    };
-
-    gpio_config(&io_conf);
+    for (int i = 0; i < max_number_channel; i++){
+        gpio_reset_pin(led_pins[i]);
+        gpio_set_direction(led_pins[i], GPIO_MODE_OUTPUT);
+        gpio_reset_pin(lock_pins[i]);
+        gpio_set_direction(lock_pins[i], GPIO_MODE_OUTPUT);
+    }
 }
 
 // После срабатывания таймера обнуляется флаг для работы канала
 void timerCallback(TimerHandle_t xTimer){
     uint8_t *id = pvTimerGetTimerID(xTimer);
+    
+    ch_parameters[*id-1].channel_permission = 0;
 
-    if (*id == LED_1_PARAM.channel_id) {
-        LED_1_PARAM.channel_permission = 0;
-    }
-    if (*id == LED_2_PARAM.channel_id) {
-        LED_2_PARAM.channel_permission = 0;
-    }
-    if (*id == LED_3_PARAM.channel_id) {
-        LED_3_PARAM.channel_permission = 0;
-    }
-    if (*id == LED_4_PARAM.channel_id) {
-        LED_4_PARAM.channel_permission = 0;
-    }
-    if (*id == LED_5_PARAM.channel_id) {
-        LED_5_PARAM.channel_permission = 0;
-    }
 }
 
 void channelTask(void *pvParameters) {
@@ -101,7 +129,7 @@ void channelTask(void *pvParameters) {
     if (ReceiveParam->command == 0x02){
 
         uint8_t id = ReceiveParam->channel_id;
-        char* timer_name = "timer_" + (char) ReceiveParam->channel_id;
+        char* timer_name = "timer_" + (char) id;
 
         // Таймер для отслеживания времени работы канала
         _timer = xTimerCreate(timer_name,
@@ -111,109 +139,51 @@ void channelTask(void *pvParameters) {
             timerCallback
         );
 
-        int led_pin = 0;
-        int lock_pin = 0;
+        int led_pin = led_pins[id-1];
+        int lock_pin = lock_pins[id-1];
 
-        if (ReceiveParam->channel_id == 0x01){
-            led_pin = LED_1_PIN; lock_pin = LOCK_1_PIN;
-        }
-        if (ReceiveParam->channel_id == 0x02){
-            led_pin = LED_2_PIN; lock_pin = LOCK_2_PIN;
-        }
-        if (ReceiveParam->channel_id == 0x03){
-            led_pin = LED_3_PIN; lock_pin = LOCK_3_PIN;
-        }
-        if (ReceiveParam->channel_id == 0x04){
-            led_pin = LED_4_PIN; lock_pin = LOCK_4_PIN;
-        }
-        if (ReceiveParam->channel_id == 0x05){
-            led_pin = LED_5_PIN; lock_pin = LOCK_5_PIN;
-        }
-
-        //Проверка соответствия каналов, для исключения неправильного включения
-        if ((ReceiveParam->channel_id >= 0x01) && (ReceiveParam->channel_id <= 0x05)){
         
-            xTimerStart(_timer, 0);
+        xTimerStart(_timer, 0);
 
-            while (ReceiveParam->channel_permission) {
-                gpio_set_level(lock_pin, 1);
+        while (ReceiveParam->channel_permission) {
+            gpio_set_level(lock_pin, 1);
 
-                gpio_set_level(led_pin, 1);
+            gpio_set_level(led_pin, 1);
             
-                vTaskDelay(ReceiveParam->flash_time / portTICK_PERIOD_MS);
+            vTaskDelay(ReceiveParam->flash_time / portTICK_PERIOD_MS);
 
-                gpio_set_level(led_pin, 0);
+            gpio_set_level(led_pin, 0);
 
-                vTaskDelay(ReceiveParam->flash_time / portTICK_PERIOD_MS);        
-            }
+            vTaskDelay(ReceiveParam->flash_time / portTICK_PERIOD_MS);        
         }
-        
+                
         // Как выйдет время таймера (unlock_time), реле выключится и задача удалится
         gpio_set_level(lock_pin, 0);
-        channel_1_task_created = 0;
-        channel_2_task_created = 0;
-        channel_3_task_created = 0;
-        channel_4_task_created = 0;
-        channel_5_task_created = 0;
+        channels_created_flags[id-1] = 0;
         vTaskDelete(NULL);
     }
 }
 
 //Передача в структуру данные в зависимости от канала
 void createChannelTask(void){
-    if (recData[4] == 0x01){
-        LED_1_PARAM.package_id = recData[0] << 24 | recData[1] << 16 | recData[2] << 8 | recData[3];
-        LED_1_PARAM.channel_id = recData[4];
-        LED_1_PARAM.command =  recData[5];
-        LED_1_PARAM.unlock_time = recData[6] << 8 | recData[7];
-        LED_1_PARAM.flash_time = recData[8] << 8 | recData[9];
-        LED_1_PARAM.channel_permission = 1;
-        channel_1_task_created = 1;
-        xTaskCreate(channelTask, "CH 1 TASK", 2048, (void*)&LED_1_PARAM, 1, NULL);
-    }
 
-    if (recData[4] == 0x02){
-        LED_2_PARAM.package_id = recData[0] << 24 | recData[1] << 16 | recData[2] << 8 | recData[3];
-        LED_2_PARAM.channel_id = recData[4];
-        LED_2_PARAM.command =  recData[5];
-        LED_2_PARAM.unlock_time = recData[6] << 8 | recData[7];
-        LED_2_PARAM.flash_time = recData[8] << 8 | recData[9];
-        LED_2_PARAM.channel_permission = 1;
-        channel_2_task_created = 1;
-        xTaskCreate(channelTask, "CH 2 TASK", 2048, (void*)&LED_2_PARAM, 1, NULL);
-    }
-    
-    if (recData[4] == 0x03){
-        LED_3_PARAM.package_id = recData[0] << 24 | recData[1] << 16 | recData[2] << 8 | recData[3];
-        LED_3_PARAM.channel_id = recData[4];
-        LED_3_PARAM.command =  recData[5];
-        LED_3_PARAM.unlock_time = recData[6] << 8 | recData[7];
-        LED_3_PARAM.flash_time = recData[8] << 8 | recData[9];
-        LED_3_PARAM.channel_permission = 1;
-        channel_3_task_created = 1;
-        xTaskCreate(channelTask, "CH 3 TASK", 2048, (void*)&LED_3_PARAM, 1, NULL);
-    }
-    
-    if (recData[4] == 0x04){
-        LED_4_PARAM.package_id = recData[0] << 24 | recData[1] << 16 | recData[2] << 8 | recData[3];
-        LED_4_PARAM.channel_id = recData[4];
-        LED_4_PARAM.command =  recData[5];
-        LED_4_PARAM.unlock_time = recData[6] << 8 | recData[7];
-        LED_4_PARAM.flash_time = recData[8] << 8 | recData[9];
-        LED_4_PARAM.channel_permission = 1;
-        channel_4_task_created = 1;
-        xTaskCreate(channelTask, "CH 4 TASK", 2048, (void*)&LED_4_PARAM, 1, NULL);
-    }
-    
-    if (recData[4] == 0x05){
-        LED_5_PARAM.package_id = recData[0] << 24 | recData[1] << 16 | recData[2] << 8 | recData[3];
-        LED_5_PARAM.channel_id = recData[4];
-        LED_5_PARAM.command =  recData[5];
-        LED_5_PARAM.unlock_time = recData[6] << 8 | recData[7];
-        LED_5_PARAM.flash_time = recData[8] << 8 | recData[9];
-        LED_5_PARAM.channel_permission = 1;
-        channel_5_task_created = 1;
-        xTaskCreate(channelTask, "CH 5 TASK", 2048, (void*)&LED_5_PARAM, 1, NULL);
+    //Проверка чтобы id канала не был больше количества каналов, для исключения неправильного включения
+    if ((recData[4] >= 0x01) && (recData[4] <= max_number_channel)){ 
+
+        uint8_t ch_index = recData[4] - 1; // Получение индекса для записи в массив параметров
+
+        ch_parameters[ch_index].package_id = 0x0123;
+        ch_parameters[ch_index].channel_id = 0x01;
+        ch_parameters[ch_index].command = 0x02;
+        ch_parameters[ch_index].unlock_time = 0x1388;
+        ch_parameters[ch_index].flash_time = 0x00C8;
+        ch_parameters[ch_index].channel_permission = 1;
+
+        channels_created_flags[ch_index] = 1;
+
+        char* task_name = "TASK CH_" + (char)recData[4];
+
+        xTaskCreate(channelTask, task_name, 2048, (void*)&ch_parameters[ch_index], 1, NULL);
     }
 
     memset(recData, 0, 14);

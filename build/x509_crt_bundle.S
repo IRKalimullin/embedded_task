@@ -1,4 +1,4 @@
-/* * Data converted from /home/kir/Music/test/embedded_task/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/kir/Documents/embedde_testing/embedded_task/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)
