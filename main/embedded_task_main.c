@@ -78,7 +78,8 @@ int lock_pins[] = {
 
 #define BUF_SIZE (1024)
 
-TimerHandle_t _timer = NULL;
+TimerHandle_t _timer_lock = NULL; // Таймер для работы замка
+TimerHandle_t _timer_flash = NULL; // Таймер для работы светодиода
 
 //Структура для передачи параметров из задачи приема команды в задачу, обрабатывающую каналы
 struct channel_params
@@ -89,6 +90,7 @@ struct channel_params
     uint16_t unlock_time; 
     uint16_t flash_time;
     bool channel_permission; // флаг разрешения работы канала
+    bool flash_state; // Состояние светодиода для каждого канала
 };
 
 // Массив структур для хранения параметров для каждого канала
@@ -113,11 +115,16 @@ static void configureGPIO(void)
 }
 
 // После срабатывания таймера обнуляется флаг для работы канала
-void timerCallback(TimerHandle_t xTimer){
+void timerLockCallback(TimerHandle_t xTimer){
     uint8_t *id = pvTimerGetTimerID(xTimer);
     
     ch_parameters[*id-1].channel_permission = 0;
+}
 
+// При срабатывании таймера меняет состояние на противоположное
+void timerFlashCallback(TimerHandle_t xTimer){
+    uint8_t *id = pvTimerGetTimerID(xTimer);
+    ch_parameters[*id-101].flash_state = !ch_parameters[*id-101].flash_state;
 }
 
 void channelTask(void *pvParameters) {
@@ -129,36 +136,43 @@ void channelTask(void *pvParameters) {
     if (ReceiveParam->command == 0x02){
 
         uint8_t id = ReceiveParam->channel_id;
+        uint8_t id_flash = ReceiveParam->channel_id + 100;
+
         char* timer_name = "timer_" + (char) id;
+        char* timer_name_flash = "timer_flash_" + (char) id;
 
         // Таймер для отслеживания времени работы канала
-        _timer = xTimerCreate(timer_name,
+        _timer_lock = xTimerCreate(timer_name,
             ReceiveParam->unlock_time / portTICK_PERIOD_MS,
             pdFALSE,
             &id,
-            timerCallback
+            timerLockCallback
+        );
+
+        // Таймер с перезапуском для моргания светодиодом
+        _timer_flash = xTimerCreate(timer_name_flash,
+            ReceiveParam->flash_time / portTICK_PERIOD_MS,
+            pdTRUE,
+            &id_flash,
+            timerFlashCallback
         );
 
         int led_pin = led_pins[id-1];
         int lock_pin = lock_pins[id-1];
-
         
-        xTimerStart(_timer, 0);
+        xTimerStart(_timer_lock, 0);
+        xTimerStart(_timer_flash, 0);
 
         while (ReceiveParam->channel_permission) {
             gpio_set_level(lock_pin, 1);
-
-            gpio_set_level(led_pin, 1);
-            
-            vTaskDelay(ReceiveParam->flash_time / portTICK_PERIOD_MS);
-
-            gpio_set_level(led_pin, 0);
-
-            vTaskDelay(ReceiveParam->flash_time / portTICK_PERIOD_MS);        
+            gpio_set_level(led_pin, ReceiveParam->flash_state);      
         }
-                
+
         // Как выйдет время таймера (unlock_time), реле выключится и задача удалится
+        gpio_set_level(led_pin, 0);
         gpio_set_level(lock_pin, 0);
+        xTimerStop(_timer_flash, 1);
+        xTimerDelete(_timer_flash,1);
         channels_created_flags[id-1] = 0;
         vTaskDelete(NULL);
     }
@@ -172,13 +186,14 @@ void createChannelTask(void){
 
         uint8_t ch_index = recData[4] - 1; // Получение индекса для записи в массив параметров
 
-        ch_parameters[ch_index].package_id = 0x0123;
-        ch_parameters[ch_index].channel_id = 0x01;
-        ch_parameters[ch_index].command = 0x02;
-        ch_parameters[ch_index].unlock_time = 0x1388;
-        ch_parameters[ch_index].flash_time = 0x00C8;
+        ch_parameters[ch_index].package_id = recData[0] << 24 | recData[1] << 16 | recData[2] << 8 | recData[3];
+        ch_parameters[ch_index].channel_id = recData[4];
+        ch_parameters[ch_index].command = recData[5];
+        ch_parameters[ch_index].unlock_time = recData[6] << 8 | recData[7];
+        ch_parameters[ch_index].flash_time = recData[8] << 8 | recData[9];
         ch_parameters[ch_index].channel_permission = 1;
-
+        ch_parameters[ch_index].flash_state = 0;
+        
         channels_created_flags[ch_index] = 1;
 
         char* task_name = "TASK CH_" + (char)recData[4];
