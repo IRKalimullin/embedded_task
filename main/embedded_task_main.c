@@ -165,7 +165,14 @@ void channelTask(void *pvParameters) {
 
         while (ReceiveParam->channel_permission) {
             gpio_set_level(lock_pin, 1);
-            gpio_set_level(led_pin, ReceiveParam->flash_state);      
+            gpio_set_level(led_pin, ReceiveParam->flash_state);
+
+            /*
+            Еще можно реализовать с помощью значения с момента запуска микроконтроллера
+            условием  ((esp_timer_get_time/1000) - saved_time) >= flash_time, 
+            где saved_time - сохраненный момент времени при включении и отключении светодиода;
+            при срабатывании условия совершать переключение значения flash_state на противоположное
+            */
         }
 
         // Как выйдет время таймера (unlock_time), реле выключится и задача удалится

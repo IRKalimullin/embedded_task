@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "embedded_task",
-    "project_version":    "e21ba59-dirty",
+    "project_version":    "0ff2e2c-dirty",
     "project_path":       "/home/kir/Documents/embedde_testing/embedded_task",
     "idf_path":           "/home/kir/esp/esp-idf",
     "build_dir":          "/home/kir/Documents/embedde_testing/embedded_task/build",

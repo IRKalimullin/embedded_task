@@ -113,3 +113,5 @@
 1388	1584	1752167375720381496	/home/kir/Documents/embedde_testing/embedded_task/build/bootloader/.bin_timestamp	ff1758cb696d2dd1
 1584	1641	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	1ceb2c5346bf8598
 1584	1641	0	/home/kir/Documents/embedde_testing/embedded_task/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	1ceb2c5346bf8598
+5	33	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	1ceb2c5346bf8598
+5	33	0	/home/kir/Documents/embedde_testing/embedded_task/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	1ceb2c5346bf8598
